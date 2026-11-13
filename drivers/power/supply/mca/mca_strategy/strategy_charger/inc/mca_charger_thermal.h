@@ -120,6 +120,8 @@ struct mca_sic_data sic_init_list[POWER_MAX_LIST] = {
 #define BATT_CELL_SELECT_MAX 3
 
 struct mca_thermal_info {
+	struct delayed_work poll_work;
+	struct power_supply *batt_psy;
 	struct device *dev;
 	struct thermal_cooling_device *tcd;
 	struct delayed_work init_voter_work;
